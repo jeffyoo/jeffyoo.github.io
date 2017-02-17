@@ -11,12 +11,16 @@
 <div>
 	<!-- The displayed currency values -->
 	<div class="coins">
-		<div id="coin" ng-repeat="(key, value) in coins" ng-click="test(key)">{{value}}</div>
+		<div id="coin" ng-repeat="(key, value) in coins" ng-click="changeValue(key)">{{value.value}}
+			<div id="count">
+				{{value.count}}
+			</div>
+		</div>
 	</div>
 
 	<!-- The form input -->
 	<div>
-		<form ng-submit="test2()">
+		<form ng-submit="calculate()">
 			<input type="text" name="" ng-model="totalValue">
 			<button>Calculate</button>
 		</form>
