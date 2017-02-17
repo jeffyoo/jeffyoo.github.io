@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html ng-app="MyApp">
-<head>
-	<title>NCSOFT Front-end Engineer Homework Assignment</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.1/angular.js"></script>
-	<script src="app.js"></script>
-</head>
-<body ng-controller="MyController">
-<h2>COIN COUNTER</h2>
-<div>
-	<!-- The displayed currency values -->
-	<div class="coins">
-		<div id="coin" ng-repeat="(key, value) in coins" ng-click="changeValue(key)">{{value.value}}
-			<div id="count">
-				{{value.count}}
+	<head>
+		<title>NCSOFT Front-end Engineer Homework Assignment</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.1/angular.js"></script>
+		<script src="app.js"></script>
+	</head>
+
+	<body ng-controller="MyController">
+	<h2>COIN COUNTER</h2>
+	<div>
+		<!-- The displayed currency values -->
+		<div class="coins">
+			<div id="coin" ng-repeat="(key, value) in coins" ng-click="changeValue(key)">{{value.value}}
+				<div id="count">
+					{{value.count}}
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- The form input -->
-	<div>
-		<form ng-submit="calculate()">
-			<input type="text" name="" ng-model="totalValue">
-			<button>Calculate</button>
-		</form>
-	</div>
+		<!-- The form input -->
+		<div>
+			<form ng-submit="calculate()">
+				<input type="text" name="" ng-model="totalValue">
+				<button>Calculate</button>
+			</form>
+		</div>
 
-</div>
-</body>
+	</div>
+	</body>
 </html>

@@ -1,6 +1,6 @@
 var app = angular.module("MyApp", []);
 
-app.controller("MyController", function($scope){
+app.controller("MyController", ($scope) => {
 	$scope.totalValue = null;
 	$scope.coins = {
 		"a": {
@@ -19,53 +19,45 @@ app.controller("MyController", function($scope){
 			"value": 1,
 			"count": 0
 		}
-	}
+	};
 
-	$scope.changeValue = function(key) {
-		var change = prompt("What value would you like to change it to?");
-		$scope.coins[key]["value"] = change;
-	}
+	$scope.changeValue = (key) => {
+		let change = prompt("What value would you like to change it to?");
+		$scope.coins[key]["value"] = parseInt(change);
+	};
 
-	$scope.calculate = function() {
-		var totalValue = $scope.totalValue;
-		var coins = [];
-		for (var coin in $scope.coins) {
+	$scope.calculate = () => {
+		let totalValue = $scope.totalValue;
+		let coins = [];
+
+		// Reset the count and grab all coin values into coins array
+		for (let coin in $scope.coins) {
 			coins.push($scope.coins[coin].value);
 			$scope.coins[coin].count = 0;
 		}
 
 		// Sort the coins from smallest to largest
-		coins = coins.sort(function(a,b) {
+		coins = coins.sort((a,b) => {
 			return a-b;
 		});
-		console.log(coins);
+		console.log(coins); //remove later
 
-		// Iterate through the
+		// Iterate through the coins array starting with the largest coin value
 		for (var i = coins.length-1; i >= 0; i--) {
-			// console.log(coins[i])
 			if (totalValue >= coins[i]) {
-
 				var canFitInto = Math.floor(totalValue/coins[i]);
 				totalValue = totalValue - (canFitInto * coins[i]);
 				for (var coin in $scope.coins) {
 					if ($scope.coins[coin].value === coins[i]) {
 						$scope.coins[coin].count = canFitInto;
+						break;
 					}
 				}
-
 			}
 		}
-
-		console.log($scope.coins)
-
-
-
-
-
-
-
-
 	}
+
+
 });
 
 
