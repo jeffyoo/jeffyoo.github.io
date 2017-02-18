@@ -23,7 +23,12 @@ app.controller("MyController", ($scope) => {
 
 	$scope.changeValue = (key) => {
 		let change = prompt("What value would you like to change it to?");
-		$scope.coins[key]["value"] = parseInt(change);
+		change = parseInt(change);
+		if (isNaN(change)) {
+			$scope.changeValue(key);
+		} else {
+			$scope.coins[key]["value"] = change;
+		}
 	};
 
 	$scope.calculate = () => {
@@ -40,10 +45,12 @@ app.controller("MyController", ($scope) => {
 		coins = coins.sort((a,b) => {
 			return a-b;
 		});
-		console.log(coins); //remove later
 
 		// Iterate through the coins array starting with the largest coin value
 		for (var i = coins.length-1; i >= 0; i--) {
+			if (totalValue === 0) {
+				break;
+			}
 			if (totalValue >= coins[i]) {
 				var canFitInto = Math.floor(totalValue/coins[i]);
 				totalValue = totalValue - (canFitInto * coins[i]);
@@ -59,9 +66,3 @@ app.controller("MyController", ($scope) => {
 
 
 });
-
-
-
-
-
-
