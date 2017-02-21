@@ -22,12 +22,19 @@ app.controller("MyController", ($scope) => {
 	};
 
 	$scope.changeValue = (key) => {
+		if (key === "penny") {
+			alert("Cannot change penny");
+			return;
+		}
+
 		let change = prompt("What value would you like to change it to?");
-		change = parseInt(change);
-		if (isNaN(change)) {
-			$scope.changeValue(key);
+
+		if (change === null) {
+			return;
+		} else if (isNaN(parseInt(change))) {
+			alert("Input must be a number")
 		} else {
-			$scope.coins[key]["value"] = change;
+			$scope.coins[key]["value"] = parseInt(change);
 		}
 	};
 
@@ -63,6 +70,5 @@ app.controller("MyController", ($scope) => {
 			}
 		}
 	}
-
-
+	
 });

@@ -1,15 +1,83 @@
-body {
-	font-family: sans-serif;
+.coinCounter {
+	width: 250px;
+	height: 375px;
+	vertical-align: middle;
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.title {
+	text-align: center;
+	font-weight: bold;
+	margin-top: 25px;
 }
 
 .coins {
-
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #coin {
+	background-color: lightgray;
+	color: gray;
+	border-radius: 50px;
+	width: 75px;
+	height: 75px;
+	text-align: center;
+	top: 50%;
+	vertical-align: middle;
+	float: left;
+	margin: 12px;
+	position: relative;
+}
 
+#coin p {
+	top: 40%;
+	position: relative;
 }
 
 #count {
+	background-color: black;
+	color: white;
+	border-radius: 50px;
+	width: 15px;
+	height: 15px;
+	font-size: 8px;
+	top: 0px;
+	right: 0px;
+	
+	position: absolute;
+}
 
+#count p {
+	top: 10%;
+	position: relative;	
+}
+
+.formDiv {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#input {
+	margin-top: 20px;
+	width: 100%;
+	text-align: right;
+	background-color: #FAFAFA;
+	border: 1px solid lightgray;
+}
+
+#button {
+	background-color: black;
+	color: white;
+	border: none;
+	padding: 5px;
+	width: 100%;
+	margin-top: 20px;
 }

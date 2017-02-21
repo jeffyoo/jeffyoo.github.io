@@ -9,25 +9,27 @@
 	</head>
 
 	<body ng-controller="MyController">
-	<p>COIN COUNTER</p>
-	<div>
-		<!-- The displayed currency values -->
-		<div class="coins">
-			<div id="coin" ng-repeat="(key, value) in coins" ng-click="changeValue(key)">{{value.value}}
-				<div id="count">
-					{{value.count}}
+
+		<div class="coinCounter">
+			<p class="title">COIN COUNTER</p>
+			<!-- The displayed currency values -->
+			<div class="coins">
+				<div id="coin" ng-repeat="(key, value) in coins" ng-click="changeValue(key)"> 
+					<p>{{value.value}}</p>
+						<div id="count" ng-hide="value.count===0">
+							<p>{{value.count}}</p>
+						</div>
 				</div>
+			</div>
+
+			<!-- The form input -->
+			<div class="formDiv">
+				<form ng-submit="calculate()">
+					<input id="input" type="number" ng-model="totalValue" required>
+					<button id="button">CALCULATE</button>
+				</form>
 			</div>
 		</div>
 
-		<!-- The form input -->
-		<div>
-			<form ng-submit="calculate()">
-				<input type="number" name="" ng-model="totalValue" required>
-				<button>Calculate</button>
-			</form>
-		</div>
-
-	</div>
 	</body>
 </html>

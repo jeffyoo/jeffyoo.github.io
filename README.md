@@ -1,1 +1,1 @@
-"# ncsoftCoinCounter" 
+"NCSOFT Coin Counter" 
